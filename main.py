@@ -17,7 +17,7 @@ async def main() -> None:
     async def on_startup():
         logging.warning("Starting webhook..")
         await bot.delete_webhook()
-        await bot.set_webhook(env.WEBHOOK_URL, drop_pending_updates=True)
+        await bot.set_webhook(env.WEBHOOK_URL, drop_pending_updates=False)
 
     async def on_shutdown():
         logging.warning("Shutting down..")
@@ -30,16 +30,16 @@ async def main() -> None:
         webhook_path=env.WEBHOOK_URL_PATH,
         on_startup=on_startup,
         on_shutdown=on_shutdown,
-        skip_updates=True,
+        skip_updates=False,
         host=env.WEBAPP_HOST,
         port=env.WEBAPP_PORT,
     )
 
     # For local tests
-    # try:
-    #     await dp.start_polling()
-    # finally:
-    #     await bot.close()
+    try:
+        await dp.start_polling()
+    finally:
+        await bot.close()
 
 
 # Debug only, polling mode
