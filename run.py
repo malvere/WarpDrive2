@@ -15,8 +15,7 @@ dp.middleware.setup(LoggingMiddleware())
 async def on_startup():
     logging.warning("Starting webhook..")
     await bot.delete_webhook()
-    commands.setup(dp)
-    callback.setup(dp)
+
     await bot.set_webhook(env.WEBHOOK_URL, drop_pending_updates=False)
 
 
@@ -26,6 +25,8 @@ async def on_shutdown():
 
 
 if __name__ == "__main__":
+    commands.setup(dp)
+    callback.setup(dp)
     start_webhook(
         dispatcher=dp,
         webhook_path=env.WEBHOOK_URL_PATH,
