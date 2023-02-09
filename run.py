@@ -12,13 +12,13 @@ if __name__ == "__main__":
 
     dp.middleware.setup(LoggingMiddleware())
 
-    async def on_startup():
+    async def on_startup(self):
         logging.warning("Starting webhook..")
         await bot.delete_webhook()
         await bot.set_my_commands(commands=set_cmd())
         await bot.set_webhook(env.WEBHOOK_URL)
 
-    async def on_shutdown():
+    async def on_shutdown(self):
         logging.warning("Shutting down..")
         logging.warning("Bye!")
 
