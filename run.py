@@ -8,14 +8,14 @@ logging.basicConfig(level=logging.INFO)
 
 bot = Bot(token=env.API_TOKEN)
 dp = Dispatcher(bot)
-bot.set_my_commands(commands=set_cmd())
+
 dp.middleware.setup(LoggingMiddleware())
 
 
 async def on_startup():
     logging.warning("Starting webhook..")
     await bot.delete_webhook()
-
+    await bot.set_my_commands(commands=set_cmd())
     await bot.set_webhook(env.WEBHOOK_URL, drop_pending_updates=False)
 
 
