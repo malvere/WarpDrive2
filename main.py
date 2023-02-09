@@ -25,15 +25,15 @@ async def main() -> None:
 
     commands.setup(dp)
     callback.setup(dp)
-    start_webhook(
-        dispatcher=dp,
-        webhook_path=env.WEBHOOK_URL_PATH,
-        on_startup=on_startup,
-        on_shutdown=on_shutdown,
-        skip_updates=False,
-        host=env.WEBAPP_HOST,
-        port=env.WEBAPP_PORT,
-    )
+    # start_webhook(
+    #     dispatcher=dp,
+    #     webhook_path=env.WEBHOOK_URL_PATH,
+    #     on_startup=on_startup,
+    #     on_shutdown=on_shutdown,
+    #     skip_updates=False,
+    #     host=env.WEBAPP_HOST,
+    #     port=env.WEBAPP_PORT,
+    # )
 
     # For local tests
     try:
