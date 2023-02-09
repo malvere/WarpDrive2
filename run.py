@@ -17,6 +17,8 @@ async def on_startup(self):
     await bot.delete_webhook()
     await bot.set_my_commands(commands=set_cmd())
     await bot.set_webhook(env.WEBHOOK_URL)
+    commands.setup(dp)
+    callback.setup(dp)
 
 
 async def on_shutdown(self):
@@ -25,8 +27,6 @@ async def on_shutdown(self):
 
 
 if __name__ == "__main__":
-    commands.setup(dp)
-    callback.setup(dp)
     start_webhook(
         dispatcher=dp,
         webhook_path=env.WEBHOOK_URL_PATH,
