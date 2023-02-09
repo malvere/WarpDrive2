@@ -5,7 +5,7 @@ from imports import *
 
 
 # Logging
-async def main() -> None:
+def main() -> None:
     logging.basicConfig(level=logging.INFO)
 
     bot = Bot(token=env.API_TOKEN)
@@ -25,21 +25,16 @@ async def main() -> None:
         logging.warning("Shutting down..")
         logging.warning("Bye!")
 
-    asyncio.run(
-        start_webhook(
-            dispatcher=dp,
-            webhook_path=env.WEBHOOK_URL_PATH,
-            on_startup=on_startup,
-            on_shutdown=on_shutdown,
-            skip_updates=False,
-            host=env.WEBAPP_HOST,
-            port=env.WEBAPP_PORT,
-        )
+    start_webhook(
+        dispatcher=dp,
+        webhook_path=env.WEBHOOK_URL_PATH,
+        on_startup=on_startup,
+        on_shutdown=on_shutdown,
+        skip_updates=False,
+        host=env.WEBAPP_HOST,
+        port=env.WEBAPP_PORT,
     )
 
 
 if __name__ == "__main__":
-    import nest_asyncio
-
-    nest_asyncio.apply()
-    asyncio.run(main())
+    main()
