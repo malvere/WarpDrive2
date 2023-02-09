@@ -25,16 +25,14 @@ async def main() -> None:
         logging.warning("Shutting down..")
         logging.warning("Bye!")
 
-    asyncio.run(
-        start_webhook(
-            dispatcher=dp,
-            webhook_path=env.WEBHOOK_URL_PATH,
-            on_startup=on_startup,
-            on_shutdown=on_shutdown,
-            skip_updates=False,
-            host=env.WEBAPP_HOST,
-            port=env.WEBAPP_PORT,
-        )
+    await start_webhook(
+        dispatcher=dp,
+        webhook_path=env.WEBHOOK_URL_PATH,
+        on_startup=on_startup,
+        on_shutdown=on_shutdown,
+        skip_updates=False,
+        host=env.WEBAPP_HOST,
+        port=env.WEBAPP_PORT,
     )
 
 
