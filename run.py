@@ -25,9 +25,7 @@ async def main() -> None:
         logging.warning("Shutting down..")
         logging.warning("Bye!")
 
-    loop = asyncio.get_event_loop()
-    await loop.run_in_executor(
-        None,
+    asyncio.run(
         start_webhook(
             dispatcher=dp,
             webhook_path=env.WEBHOOK_URL_PATH,
@@ -36,9 +34,12 @@ async def main() -> None:
             skip_updates=False,
             host=env.WEBAPP_HOST,
             port=env.WEBAPP_PORT,
-        ),
+        )
     )
 
 
 if __name__ == "__main__":
+    import nest_asyncio
+
+    nest_asyncio.apply()
     asyncio.run(main())
