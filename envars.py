@@ -21,7 +21,7 @@ WEBAPP_HOST = os.getenv("localhost")
 WEBAPP_PORT = os.getenv("PORT")
 
 CHANNEL_ID = os.getenv("CHANNEL_ID")
-CALL_FILTERS = os.getenv("CALL_FILTERS").split("\/")
+CALL_FILTERS = str(os.getenv("CALL_FILTERS")).split("\/")
 ADMIN = os.getenv("ADMIN")
 
 EMAIL_PWD = os.getenv("EMAIL_PWD")

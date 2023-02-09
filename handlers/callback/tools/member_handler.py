@@ -7,7 +7,7 @@ from ... import keyboards as kb
 filtered_calls = [
     "licence",
     "generate-qr-code",
-] + str(CALL_FILTERS)
+] + CALL_FILTERS
 
 
 async def member_status(call: types.CallbackQuery):
