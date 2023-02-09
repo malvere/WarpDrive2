@@ -23,24 +23,23 @@ async def main() -> None:
         logging.warning("Shutting down..")
         logging.warning("Bye!")
 
-    # msg_handler.setup(dp)
     commands.setup(dp)
     callback.setup(dp)
-    # start_webhook(
-    #     dispatcher=dp,
-    #     webhook_path=env.WEBHOOK_URL_PATH,
-    #     on_startup=on_startup,
-    #     on_shutdown=on_shutdown,
-    #     skip_updates=True,
-    #     host=env.WEBAPP_HOST,
-    #     port=env.WEBAPP_PORT,
-    # )
+    start_webhook(
+        dispatcher=dp,
+        webhook_path=env.WEBHOOK_URL_PATH,
+        on_startup=on_startup,
+        on_shutdown=on_shutdown,
+        skip_updates=True,
+        host=env.WEBAPP_HOST,
+        port=env.WEBAPP_PORT,
+    )
 
     # For local tests
-    try:
-        await dp.start_polling()
-    finally:
-        await bot.close()
+    # try:
+    #     await dp.start_polling()
+    # finally:
+    #     await bot.close()
 
 
 # Debug only, polling mode
