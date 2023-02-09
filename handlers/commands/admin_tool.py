@@ -1,5 +1,4 @@
 import platform
-from socket import gethostname
 
 from aiogram import types
 
@@ -12,6 +11,5 @@ async def admin_tool(msg: types.Message) -> None:
 
     :param msg:
     """
-    socket = gethostname()
     system = platform.platform()
-    await msg.answer(f"{system} \nSocket: {socket}")
+    await msg.answer(f"System: {system}")
