@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "warpdrive2"
+version = "0.1.0"
+description = ""
+authors = ["Malvere <gatling1404@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+aiogram = "^2.24"
+httpx = "^0.23.2"
+aiofiles = "^22.1.0"
+qrcode = "^7.4.1"
+pillow = "^9.4.0"
+
+
+[tool.poetry.group.dev.dependencies]
+python-dotenv = "^0.21.1"
+flake8 = "^6.0.0"
+yapf = "^0.32.0"
+black = {version = "^23.1a1", allow-prereleases = true}
+pytest = "^7.2.1"
+pytest-asyncio = "^0.20.3"
+aresponses = "^2.1.6"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
