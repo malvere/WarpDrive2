@@ -1,4 +1,4 @@
-from asyncio import run, sleep
+import asyncio
 
 from aiogram.types import CallbackQuery, ParseMode
 from aiogram.utils.markdown import bold, text
@@ -15,26 +15,25 @@ async def license(call: CallbackQuery) -> None:
     :param call:
     """
     await call.message.edit_text("Подготовка к генерации ключа...")
-    await sleep(0.5)
+    await asyncio.sleep(0.5)
     await call.message.edit_text("Генерация ключа")
-    await sleep(0.5)
+    await asyncio.sleep(0.5)
     await call.message.edit_text("Процесс займёт до 1 минуты")
     try:
-        from warp import gen_warp
+        from warp import async_wg
 
-        # await call.message.edit_text(f"Попытка генерации ключа")
-        key, limit = gen_warp.gen()
-        if limit > 1000:
+        warp = await async_wg.gen()
+        if warp.check_limit():
             license_message = text(
                 bold("Ключ готов: \n"),
-                (f"`{key}`\n"),
+                (f"`{warp.key}`\n"),
                 ("Для копиравания нажми на ключ"),
-                (f"Квота: {limit}"),
+                (f"Квота: {warp.limit}"),
                 sep="\n",
             )
             await call.message.edit_text(license_message, parse_mode=ParseMode.MARKDOWN)
         else:
-            await call.message.edit_text(f"Квота: {limit}\nПерегенерировать?", reply_markup=kb.regen)
+            await call.message.edit_text(f"Квота: {warp.limit}\nПерегенерировать?", reply_markup=kb.regen)
 
     except Exception as ex:
         ex_message = f"Type: {type(ex).__name__}"

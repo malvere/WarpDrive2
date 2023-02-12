@@ -12,8 +12,12 @@ async def generate_qr(call: CallbackQuery) -> None:
 
     :param call:
     """
-    conf_path = "warp/cert/warp.conf"
-    qr_path = "warp/cert/qr_basic.png"
+    if call.data.split("\\")[-1] == "basic":
+        conf_path = "warp/cert/warp.conf"
+        qr_path = "warp/cert/qr_basic.png"
+    else:
+        conf_path = "warp/cert/WarpPlus.conf"
+        qr_path = "warp/cert/qr_plus.png"
     await call.message.edit_text("Генерирую QR-Код")
     await sleep(0.5)
     qr = qrcode.QRCode(
