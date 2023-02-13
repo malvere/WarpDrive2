@@ -6,7 +6,9 @@ from ... import keyboards as kb
 
 filtered_calls = [
     "licence",
-    "generate-qr-code",
+    "generate-qr-code\\basic",
+    "generate-qr-code\\plus",
+    "plus-config",
 ] + CALL_FILTERS
 
 
