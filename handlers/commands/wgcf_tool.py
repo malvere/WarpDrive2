@@ -10,6 +10,7 @@ async def wgcf_tool(msg: types.Message) -> None:
     WGCF Handler
 
     Allows for .conf generation with existing CloudFlare Warp key
+    Uses WGCF class from warp_plus to generate config
 
     :param call:
     """

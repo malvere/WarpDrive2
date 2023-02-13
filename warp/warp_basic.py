@@ -3,6 +3,11 @@ import aiohttp
 
 
 class Config:
+    """
+    Generates (downloads) basic WireGuard.conf file
+    Prepares corresponding edits
+    """
+
     def __init__(self, fileName):
         self.url = "https://cf-warp.maple3142.net/warp.conf"
         self.fileName = f"warp/cert/{fileName}"

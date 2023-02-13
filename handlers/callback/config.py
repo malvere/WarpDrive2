@@ -10,6 +10,8 @@ from .. import keyboards as kb
 async def config(call: CallbackQuery) -> None:
     """
     Callback handler for "config"
+    Outputs baisc config
+    Currently available for non-member users, nehavior could be changed by adding callBackData to coresponding envar
 
     :param call:
     """

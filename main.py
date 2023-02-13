@@ -1,27 +1,39 @@
 # Imports
 from imports import *
 
-# Bot Init
 
-
-# Logging
+# Main function
 def main() -> None:
-    logging.basicConfig(level=logging.INFO)
+    """
+    Bots "Heart"
+
+    Used to setup core-functionality
+    """
+    logging.basicConfig(level=logging.INFO)  # Logging
 
     bot = Bot(token=env.API_TOKEN)
     dp = Dispatcher(bot)
 
-    dp.middleware.setup(LoggingMiddleware())
+    dp.middleware.setup(LoggingMiddleware())  # Middleware setup
 
     async def on_startup(self):
+        """
+        Actions to perform on WebHook Startup:
+        """
         logging.warning("Starting webhook..")
         await bot.delete_webhook()
         await bot.set_my_commands(commands=set_cmd())
         await bot.set_webhook(env.WEBHOOK_URL, drop_pending_updates=True)
-        commands.setup(dp)
-        callback.setup(dp)
+        commands.setup(dp)  # Setup CMDs
+        callback.setup(dp)  # Setup callback
 
     async def on_shutdown(self):
+        """
+        Actions to perform on WebHook Shutdown
+
+        Note: self.delete_webhook() is not used due to startrup issues
+        When running on hosting
+        """
         logging.warning("Shutting down..")
         logging.warning("Bye!")
 

@@ -7,7 +7,7 @@ async def admin_tool(msg: types.Message) -> None:
     """
     Command handler for /admin
 
-    Handles admin priveleges (test purposes)
+    Handles admin priveleges, mainly for test purposes
 
     :param msg:
     """

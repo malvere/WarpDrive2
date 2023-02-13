@@ -7,19 +7,25 @@ from warp import async_wg as agw
 
 
 class WGCF:
-    def __init__(self, filename, licence=None) -> None:
+    """
+    Generates Warp+ WireGuards.conf
+    license is optional: if not passed, new key will be generated
+
+    :param filename:
+    :param license
+    """
+
+    def __init__(self, filename, license=None) -> None:
         self.filename = filename
-        self.licence = licence
+        self.license = license
         self.wgcf = WGCF_BIN
         self.cwd = "./warp/"
         self.warp: agw.WarpLicense
 
-        # self.loop = asyncio.get_event_loop()
-
-        # self.loop.run_until_complete(self.get_license())
-        # self.get_license()
-
     def start(self):
+        """
+        Main sequence
+        """
         self.get_toml()
         self.edit_toml()
         self.update_toml()
@@ -27,7 +33,7 @@ class WGCF:
         self.edit_conf()
 
     async def get_license(self) -> agw.WarpLicense:
-        if self.licence == None:
+        if self.license == None:
             for i in range(5):
                 print(f"Attempt: {i+1}")
                 # warp: agw.WarpLicense = asyncio.run(agw.gen())
@@ -40,7 +46,7 @@ class WGCF:
                     pass
         else:
             print("Detected existing license key")
-            warp = agw.WarpLicense(key=self.licence, limit="12096606")
+            warp = agw.WarpLicense(key=self.license, limit="12096606")
             self.warp = warp
             return warp
 

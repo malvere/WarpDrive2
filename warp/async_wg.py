@@ -83,6 +83,11 @@ async def del_reg(client: httpx.AsyncClient, reg_id, token):
 
 
 async def gen() -> WarpLicense:
+    """
+    Generates 12PB Warp key
+    Based on @Saito.alex's script, rewritten with asyncio
+    Original scrip: https://4pda.to/forum/index.php?showtopic=929115&st=1240#entry113636360
+    """
     async with httpx.AsyncClient(base_url=base_url, headers=base_headers, timeout=15.0) as client:
         reg = await get_reg(client)
         json = {"referrer": f"{reg[0]}"}

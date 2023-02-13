@@ -1,5 +1,9 @@
 # Imports
+"""
+Bulk-imports
 
+Used for importing in main while contaning readbility
+"""
 import asyncio
 import logging
 

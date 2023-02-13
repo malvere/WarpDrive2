@@ -7,6 +7,7 @@ from .tools import commands_list as cmd_list
 async def help(msg: types.Message) -> None:
     """
     Command handler for /start
+    Used to get detailed help for Bot CMDs
 
     :param msg:
     """

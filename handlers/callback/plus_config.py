@@ -10,6 +10,7 @@ from .. import keyboards as kb
 async def plus_config(call: CallbackQuery) -> None:
     """
     Callback handler for Warp+ configs
+    Uses WGCF Class from warp_plus to generate corresponding config
 
     :param call:
     """

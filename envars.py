@@ -23,9 +23,12 @@ WEBAPP_HOST = os.getenv("localhost")
 WEBAPP_PORT = os.getenv("PORT")
 
 """ Administration and Restrictions """
-CHANNEL_ID = os.getenv("CHANNEL_ID")
-CALL_FILTERS = str(os.getenv("CALL_FILTERS")).split("\/")
-ADMIN = os.getenv("ADMIN")
+CHANNEL_ID = os.getenv("CHANNEL_ID")  # Channel Id (bot should be added to it with admin priveleges)
+CHANNEL_URL = os.getenv("CHANNEL_URL")  # Channel url to output for non-member users
+CALL_FILTERS = str(os.getenv("CALL_FILTERS")).split(
+    "\/"
+)  # Filters CallBackCalls to be added to member-only list (see handlers.callback.tools for more info)
+ADMIN = os.getenv("ADMIN")  # Get user which will have access for admin priveleges
 
 """ Tools (such as WGCF bin) """
-WGCF_BIN = os.getenv("WGCF")
+WGCF_BIN = os.getenv("WGCF")  # Determine WGCF_bin name

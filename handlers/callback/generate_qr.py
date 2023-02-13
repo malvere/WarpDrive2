@@ -8,7 +8,7 @@ async def generate_qr(call: CallbackQuery) -> None:
     """
     Callback handler for "generate-qr-code"
 
-    Generates QR code for WireGuard Config
+    Generates QR code for WireGuard Configs
 
     :param call:
     """
