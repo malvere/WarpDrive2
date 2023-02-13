@@ -1,4 +1,4 @@
-from asyncio import run, sleep
+# from asyncio import run, sleep
 
 from aiogram.types import CallbackQuery
 
@@ -14,14 +14,14 @@ async def plus_config(call: CallbackQuery) -> None:
     :param call:
     """
     await call.message.edit_text("Обработка запроса, процесс может занять до 2 минут")
-    await sleep(1)
+    # await sleep(1)
 
     conf = WGCF("WarpPlus")
     try:
         await conf.get_license()
         conf.start()
         await call.message.edit_text("Конфигурация готова")
-        await sleep(1)
+        # await sleep(1)
         with open("warp/cert/WarpPlus.conf", "rb") as f:
             await call.message.reply_document(f)
         await call.message.edit_text("Готово!", reply_markup=kb.generate_qrcode_plus)

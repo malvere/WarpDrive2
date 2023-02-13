@@ -1,4 +1,4 @@
-import asyncio
+# import asyncio
 
 from aiogram.types import CallbackQuery, ParseMode
 from aiogram.utils.markdown import bold, text
@@ -14,10 +14,10 @@ async def license(call: CallbackQuery) -> None:
 
     :param call:
     """
-    await call.message.edit_text("Подготовка к генерации ключа...")
-    await asyncio.sleep(0.5)
-    await call.message.edit_text("Генерация ключа")
-    await asyncio.sleep(0.5)
+    # await call.message.edit_text("Подготовка к генерации ключа...")
+    # await asyncio.sleep(0.5)
+    # await call.message.edit_text("Генерация ключа")
+    # await asyncio.sleep(0.5)
     await call.message.edit_text("Процесс займёт до 1 минуты")
     try:
         from warp import async_wg
