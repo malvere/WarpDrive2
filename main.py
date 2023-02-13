@@ -17,7 +17,7 @@ def main() -> None:
         logging.warning("Starting webhook..")
         await bot.delete_webhook()
         await bot.set_my_commands(commands=set_cmd())
-        await bot.set_webhook(env.WEBHOOK_URL)
+        await bot.set_webhook(env.WEBHOOK_URL, drop_pending_updates=True)
         commands.setup(dp)
         callback.setup(dp)
 
