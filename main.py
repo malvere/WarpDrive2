@@ -30,7 +30,7 @@ def main() -> None:
         webhook_path=env.WEBHOOK_URL_PATH,
         on_startup=on_startup,
         on_shutdown=on_shutdown,
-        skip_updates=False,
+        skip_updates=True,
         host=env.WEBAPP_HOST,
         port=env.WEBAPP_PORT,
     )
