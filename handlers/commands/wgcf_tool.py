@@ -16,7 +16,7 @@ async def wgcf_tool(msg: types.Message) -> None:
     """
     args = msg.get_args()
     if args:
-        conf = WGCF(filename="WarpPlus", licence=args)
+        conf = WGCF(filename="WarpPlus", license=args)
         try:
             await conf.get_license()
             conf.start()
