@@ -19,7 +19,6 @@ async def generate_qr(call: CallbackQuery) -> None:
         conf_path = "warp/cert/WarpPlus.conf"
         qr_path = "warp/cert/qr_plus.png"
     await call.message.edit_text("Генерирую QR-Код")
-    # await sleep(0.5)
     qr = qrcode.QRCode(
         version=1,
         error_correction=qrcode.ERROR_CORRECT_M,

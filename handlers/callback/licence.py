@@ -14,10 +14,6 @@ async def license(call: CallbackQuery) -> None:
 
     :param call:
     """
-    # await call.message.edit_text("Подготовка к генерации ключа...")
-    # await asyncio.sleep(0.5)
-    # await call.message.edit_text("Генерация ключа")
-    # await asyncio.sleep(0.5)
     await call.message.edit_text("Процесс займёт до 1 минуты")
     try:
         from warp import async_wg
@@ -37,4 +33,9 @@ async def license(call: CallbackQuery) -> None:
 
     except Exception as ex:
         ex_message = f"Type: {type(ex).__name__}"
-        await call.message.edit_text(f"Ошибка генерации, попробуйте через 10 минут. \nDetails: {ex_message}\n{ex}")
+        ex_text = text(
+            ("Ошибка генерации, слишком много запросов.\n"),
+            ("Попробуйте через 10 минут.\n\n\n"),
+            (f"Details: ||{ex_message}||"),
+        )
+        await call.message.edit_text(ex_text)
