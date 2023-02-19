@@ -38,4 +38,4 @@ async def license(call: CallbackQuery) -> None:
             ("Попробуйте через 10 минут.\n\n\n"),
             (f"Details: ||{ex_message}||"),
         )
-        await call.message.edit_text(ex_text)
+        await call.message.edit_text(ex_text, parse_mode=ParseMode.MARKDOWN)

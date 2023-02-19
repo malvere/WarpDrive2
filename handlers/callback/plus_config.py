@@ -1,6 +1,6 @@
 # from asyncio import run, sleep
 
-from aiogram.types import CallbackQuery
+from aiogram.types import CallbackQuery, ParseMode
 from aiogram.utils.markdown import text
 
 from warp.warp_plus import WGCF
@@ -31,4 +31,4 @@ async def plus_config(call: CallbackQuery) -> None:
             ("Попробуйте через 10 минут.\n\n\n"),
             (f"Details: ||{ex_message}||"),
         )
-        await call.message.edit_text(ex_text)
+        await call.message.edit_text(ex_text, parse_mode=ParseMode.MARKDOWN)
