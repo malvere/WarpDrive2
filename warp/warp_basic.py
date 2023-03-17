@@ -4,6 +4,9 @@ import aiohttp
 
 class Config:
     """
+    *** DEPRICATED ***
+    USE 'basic.py' INSTEAD
+
     Generates (downloads) basic WireGuard.conf file
     Prepares corresponding edits
     """

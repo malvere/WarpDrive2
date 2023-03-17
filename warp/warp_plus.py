@@ -108,7 +108,3 @@ class WGCF:
             f.write(fdata)
             print(f"\n{'-'*10} {self.filename}.toml edited successfully {'-'*10}\n")
             return f
-
-
-# %%
-# acc = WGCF(filename="WarpPlus", licence="r58Ha49i-i0h65H2L-18QB64ho")
