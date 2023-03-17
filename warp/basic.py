@@ -9,11 +9,14 @@ class WGCFBasic:
         self.wgcf = WGCF_BIN
         self.cwd = "./warp/"
 
-    def start():
+    def start(self):
         """
         Main sequence
         Does not generate keys
         """
+        self.get_toml()
+        self.get_conf()
+        self.edit_conf()
 
     def get_toml(self):
         print(f"\n{'-'*10} Running Shell CMDs{'-'*10}\n")
@@ -28,7 +31,7 @@ class WGCFBasic:
             cwd=self.cwd,
         )
         print(f"\n{'-'*10} {self.filename}.toml generated {'-'*10}\n")
-        pass
+        # pass
 
     def get_conf(self):
         print(f"\n{'-'*10} {self.filename}.conf {'-'*10}\n")
@@ -39,7 +42,7 @@ class WGCFBasic:
             cwd=self.cwd,
         )
         print(f"\n{'-'*10} {self.filename}.conf generated {'-'*10}\n")
-        pass
+        # pass
 
     def edit_conf(self):
         print(f"\n{'-'*10} Editing {self.filename}.conf {'-'*10}\n")
