@@ -23,7 +23,17 @@ def main() -> None:
         logging.warning("Starting webhook..")
         await bot.delete_webhook()
         await bot.set_my_commands(commands=set_cmd())
-        await bot.set_webhook(env.WEBHOOK_URL, drop_pending_updates=True)
+
+        # Getting webhook info
+        webhook = await bot.get_webhook_info()
+
+        # Resolve webhook if BadUrl
+        if webhook.url != env.WEBHOOK_URL:
+            logging.warning(f"Bad webhook url: {webhook.url}, resolving...")
+            if not webhook.url:
+                await bot.delete_webhook()
+                logging.warning("Webhook url deleted")
+            await bot.set_webhook(env.WEBHOOK_URL)
         commands.setup(dp)  # Setup CMDs
         callback.setup(dp)  # Setup callback
 

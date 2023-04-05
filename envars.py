@@ -17,7 +17,7 @@ else:
 API_TOKEN = str(os.getenv("API_TOKEN"))
 PROJECT_NAME = os.getenv("PROJECT_NAME")
 WEBHOOK_HOST = f"https://{PROJECT_NAME}.onrender.com"  # Enter here your link from Heroku project settings
-WEBHOOK_URL_PATH = f"/{API_TOKEN}"
+WEBHOOK_URL_PATH = "/webhook"
 WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_URL_PATH}"
 WEBAPP_HOST = os.getenv("localhost")
 WEBAPP_PORT = os.getenv("PORT")
