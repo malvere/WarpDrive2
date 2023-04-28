@@ -14,12 +14,12 @@ base_headers = {
 }
 
 keys = (
-    "jd1s6G03-64rVC17U-xd97g64m",
-    "tN9u71i3-8sCr5I17-o5qK729l",
-    "6K49f0Cu-U27B3io1-5N93Qk4R",
-    "8o1s09Nx-j94nE12u-0Jfc584l",
-    "41zA9b6Q-0r8fW3g4-di9Mb072",
-    "51Yk3CF2-956A8WGp-784YiJ2W",
+    "9Hp70f6w-081fe4dq-b4sR37t6",
+    "9Hp70f6w-081fe4dq-b4sR37t6",
+    "l57X16JH-90Y26Wgc-W81A2OX3",
+    "E61v45SL-1Kw5X8d6-239N0xXW",
+    "4J8tR6a1-Gy3189FZ-89K5vZ7f",
+    "25Kga49l-h913Xq4K-IJ2B036N",
     "8W537Jfk-3Fx40c7k-Eat6719b",
     "756FgZP4-7Q6i5t9Z-0MsZ579j",
     "2G78oSz4-Q07jV28C-M7l56x0d",
