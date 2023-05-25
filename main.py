@@ -1,4 +1,6 @@
 # Imports
+from aiogram.contrib.fsm_storage.memory import MemoryStorage
+
 from imports import *
 
 
@@ -12,7 +14,7 @@ def main() -> None:
     logging.basicConfig(level=logging.INFO)  # Logging
 
     bot = Bot(token=env.API_TOKEN)
-    dp = Dispatcher(bot)
+    dp = Dispatcher(bot, storage=MemoryStorage())
 
     dp.middleware.setup(LoggingMiddleware())  # Middleware setup
 
@@ -25,9 +27,13 @@ def main() -> None:
         await bot.set_my_commands(commands=set_cmd())
 
         # Getting webhook info
+        logging.info("Preparing DB...")
+        await proceed_schemas(async_engine, BaseModel.metadata, User.__tablename__)
+
         webhook = await bot.get_webhook_info()
 
         # Resolve webhook if BadUrl
+
         if webhook.url != env.WEBHOOK_URL:
             logging.warning(f"Bad webhook url: {webhook.url}, resolving...")
             if not webhook.url:

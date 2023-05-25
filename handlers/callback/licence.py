@@ -34,8 +34,6 @@ async def license(call: CallbackQuery) -> None:
     except Exception as ex:
         ex_message = f"Type: {type(ex).__name__}"
         ex_text = text(
-            ("Ошибка генерации, слишком много запросов.\n"),
-            ("Попробуйте через 10 минут.\n\n\n"),
-            (f"Details: ||{ex_message}||"),
+            ("Ошибка генерации, слишком много запросов на сервере. Повторите попытку через 10 минут."),
         )
         await call.message.edit_text(ex_text, parse_mode=ParseMode.MARKDOWN)
