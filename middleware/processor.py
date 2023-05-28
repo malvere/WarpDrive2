@@ -106,7 +106,7 @@ class ProcessorMiddleware(BaseMiddleware):
         :param throttled:
         """
         handler = current_handler.get()
-        dispatcher = Dispatcher.get_current()
+        # dispatcher = Dispatcher.get_current()
         if handler:
             key = getattr(handler, "throttling_key", f"{self.prefix}_{handler.__name__}")
         else:
@@ -123,8 +123,8 @@ class ProcessorMiddleware(BaseMiddleware):
         await sleep(delta)
 
         # Check lock status
-        thr = await dispatcher.check_key(key)
+        # thr = await dispatcher.check_key(key)
 
-        # If current message is not last with current key - do not send message
-        if thr.exceeded_count == throttled.exceeded_count:
-            await message.answer("Флуд-блок снят")
+        # # If current message is not last with current key - do not send message
+        # if thr.exceeded_count == throttled.exceeded_count:
+        #     await message.answer("Флуд-блок снят")
