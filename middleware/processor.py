@@ -20,7 +20,7 @@ class ProcessorMiddleware(BaseMiddleware):
     Antiflood middleware
     """
 
-    def __init__(self, limit=10.0, key_prefix="antiflood_"):
+    def __init__(self, limit=1.0, key_prefix="antiflood_"):
         self.rate_limit = limit
         self.prefix = key_prefix
         super(ProcessorMiddleware, self).__init__()
@@ -117,7 +117,7 @@ class ProcessorMiddleware(BaseMiddleware):
 
         # Prevent flooding
         if throttled.exceeded_count <= 2:
-            await message.answer("Подождите 10 с. перед следующим запросом.")
+            await message.answer("Подождите перед следующим запросом.")
 
         # Sleep.
         await sleep(delta)
